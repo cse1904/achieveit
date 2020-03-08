@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    function register() {
+        $.ajax({
+            url: '/register',
+            type: 'post',
+            dataType: 'json',
+            data: {"userName": $('#name').val(), "userPassword": $('#password').val()},
+            success: function (d) {
+                // if (d === null) {
+                    //     // window.location.href = 'error.html';
+                    // } else {
+                    //     // window.location.href = 'show.html';
+                    alert("..");
+                // }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status); // 200
+                alert(textStatus); // parsererror
+                alert(errorThrown); // SyntaxError: Unexpected end of input
+            }
+        })
+    }
+</script>
+<body>
+<p> 请输入用户名和密码</p>
+<form>
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" id="name" ></td>
+        </tr>
+        <tr>
+            <td>密 码</td>
+            <td><input type="password" id="password" ></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" onclick="register()" value="注册">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

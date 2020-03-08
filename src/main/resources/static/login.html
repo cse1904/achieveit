@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    function login() {
+        $.ajax({
+            url: '/login',
+            type: 'post',
+            dataType: 'text',
+            data: {"name": $('#name').val(), "password": $('#password').val()},
+            success: function (d) {
+                alert("!!!");
+                if (d === "2000") {
+                //     window.location.href = 'show.html';
+                // } else {
+                //     window.location.href = 'error.html';
+                    alert("成功");
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.status); // 200
+                alert(textStatus); // parsererror
+                alert(errorThrown); // SyntaxError: Unexpected end of input
+            }
+        })
+    }
+</script>
+<body>
+<p> 请输入用户名和密码</p>
+<form>
+    <table>
+        <tr>
+            <td>用户名</td>
+            <td><input type="text" id="name" ></td>
+        </tr>
+        <tr>
+            <td>密 码</td>
+            <td><input type="password" id="password" ></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" onclick="login()" value="登陆">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
