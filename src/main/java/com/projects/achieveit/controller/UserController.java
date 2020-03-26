@@ -33,13 +33,12 @@ public class UserController {
      * @return
      */
     @PostMapping("/register")
-    public String register(@Valid RegisterDTO dto){
+    public Result register(@Valid RegisterDTO dto){
         boolean result = userService.register(dto);
         if(result){
-            System.out.println(dto.getUserName());
-            return "success";
+            return new SuccessResult<>();
         }
-        return "false";
+        return new FailResult();
     }
 
     /**

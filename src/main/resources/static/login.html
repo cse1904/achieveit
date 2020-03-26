@@ -11,14 +11,16 @@
             url: '/login',
             type: 'post',
             dataType: 'text',
-            data: {"name": $('#name').val(), "password": $('#password').val()},
+            data: {
+                "userName": $('#name').val(),
+                "userPassword": $('#password').val()
+            },
             success: function (d) {
-                alert("!!!");
-                if (d === "2000") {
-                //     window.location.href = 'show.html';
-                // } else {
-                //     window.location.href = 'error.html';
-                    alert("成功");
+                if (d === null) {
+                    window.location.href = 'error.html';
+                } else {
+                    // window.location.href = 'show.html';
+                    alert(d);
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {

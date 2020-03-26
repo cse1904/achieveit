@@ -13,12 +13,12 @@
             dataType: 'json',
             data: {"userName": $('#name').val(), "userPassword": $('#password').val()},
             success: function (d) {
-                // if (d === null) {
-                    //     // window.location.href = 'error.html';
-                    // } else {
-                    //     // window.location.href = 'show.html';
-                    alert("..");
-                // }
+                if (d === null) {
+                        window.location.href = 'error.html';
+                    } else {
+                        // window.location.href = 'show.html';
+                    alert(d);
+                }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 alert(XMLHttpRequest.status); // 200

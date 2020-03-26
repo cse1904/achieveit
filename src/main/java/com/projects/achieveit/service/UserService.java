@@ -37,6 +37,7 @@ public class UserService {
     private User getUserByName(String name) {
         User user = new User();
         user.setUsername(name);
+        System.out.println(name);
         return userMapper.selectOne(user);
     }
 
